@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Innodealz LLC — Custom Software & Web Development Services</title>
+<meta name="description" content="Innodealz LLC builds custom web applications, SaaS platforms, e-commerce stores, and payment integrations for businesses and founders." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface-2:#fbfcfd;--ink:#111722;--ink-2:#3d4655;--ink-3:#6b7484;
+  --line:#e6e9ee;--accent:#2b50ec;--accent-press:#1e3fd0;--accent-tint:#eef1fe;
+  --radius:14px;--maxw:1160px;--shadow:0 1px 2px rgba(17,23,34,.04),0 12px 32px rgba(17,23,34,.06);
+  --shadow-sm:0 1px 2px rgba(17,23,34,.05),0 4px 14px rgba(17,23,34,.05);
+  --fd:"Space Grotesk",system-ui,sans-serif;--fb:"Inter",system-ui,-apple-system,sans-serif;--fm:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:600;line-height:1.12;letter-spacing:-.02em}
+.eyebrow{font-family:var(--fm);font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--accent);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:500;font-size:15px;padding:12px 20px;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s,border-color .15s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(43,80,236,.25),0 8px 20px rgba(43,80,236,.18)}
+.btn-primary:hover{background:var(--accent-press);transform:translateY(-1px)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink-3);transform:translateY(-1px)}
+.btn .arrow{transition:transform .15s}.btn:hover .arrow{transform:translateX(2px)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.82);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:600;font-size:19px}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#5b73ff);display:grid;place-items:center;color:#fff;font-family:var(--fm);font-size:15px;font-weight:600;box-shadow:0 4px 12px rgba(43,80,236,.3)}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-size:14.5px;color:var(--ink-2);transition:color .15s}.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;width:42px;height:42px;cursor:pointer}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--ink);margin:3px auto;border-radius:2px}
+section{padding:96px 0}
+.section-head{max-width:640px;margin-bottom:52px}
+.section-head h2{font-size:clamp(28px,4vw,40px);margin-top:16px}
+.section-head p{color:var(--ink-3);font-size:17px;margin-top:14px}
+.hero{padding:84px 0 92px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(36px,5.6vw,60px);letter-spacing:-.035em}
+.hero h1 .grad{background:linear-gradient(120deg,var(--accent),#6b54ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:18.5px;color:var(--ink-2);margin:24px 0 32px;max-width:520px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:28px;margin-top:40px;flex-wrap:wrap}
+.hero-meta .item{font-size:14px;color:var(--ink-3)}
+.hero-meta .item strong{display:block;font-family:var(--fd);font-size:26px;color:var(--ink);font-weight:600;letter-spacing:-.02em}
+.code-card{background:#0f1729;border-radius:var(--radius);box-shadow:0 30px 60px -20px rgba(15,23,41,.45),0 0 0 1px rgba(255,255,255,.04);overflow:hidden;font-family:var(--fm);font-size:13px}
+.code-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.code-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.code-bar i:nth-child(1){background:#ff5f57}.code-bar i:nth-child(2){background:#febc2e}.code-bar i:nth-child(3){background:#28c840}
+.code-bar .file{margin-left:10px;color:#6b7790;font-size:12px}
+.code-body{padding:20px 22px;line-height:1.85;color:#c7d0e0}
+.code-body .ln{color:#46506a;margin-right:16px;user-select:none}
+.tk-key{color:#ff7b9c}.tk-fn{color:#7cc5ff}.tk-str{color:#9be59b}.tk-com{color:#586073;font-style:italic}.tk-num{color:#f0b86c}.tk-pun{color:#8b95ad}
+.trust{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.trust p{font-family:var(--fm);font-size:12.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.trust ul{display:flex;gap:34px;list-style:none;flex-wrap:wrap}
+.trust li{font-family:var(--fd);font-weight:600;font-size:17px;color:var(--ink-2)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .16s,box-shadow .16s,border-color .16s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d8dde6}
+.card .ico{width:46px;height:46px;border-radius:11px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin-bottom:18px}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:19px;margin-bottom:9px}
+.card p{color:var(--ink-3);font-size:14.5px}
+.card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.card .tags span{font-family:var(--fm);font-size:11.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);padding:3px 9px;border-radius:20px}
+.process{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step .num{font-family:var(--fm);font-size:13px;color:var(--accent);border-top:2px solid var(--accent);padding-top:14px;display:inline-block}
+.step h3{font-size:17.5px;margin:14px 0 8px}
+.step p{color:var(--ink-3);font-size:14px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-list{list-style:none;display:grid;gap:18px;margin-top:8px}
+.about-list li{display:flex;gap:14px;align-items:flex-start}
+.about-list .check{flex:none;width:26px;height:26px;border-radius:8px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.about-list h4{font-family:var(--fd);font-size:16px;margin-bottom:3px}
+.about-list p{color:var(--ink-3);font-size:14.5px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.stat strong{display:block;font-family:var(--fd);font-size:34px;font-weight:600;letter-spacing:-.03em}
+.stat span{color:var(--ink-3);font-size:14px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-info{display:grid;gap:22px;margin-top:8px}
+.contact-info .row{display:flex;gap:14px;align-items:flex-start}
+.contact-info .ic{flex:none;width:42px;height:42px;border-radius:11px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center}
+.contact-info .lbl{font-family:var(--fm);font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em}
+.contact-info .val{font-size:16px;color:var(--ink);font-weight:500}
+.contact-info .val a:hover{color:var(--accent)}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13.5px;font-weight:500;color:var(--ink-2);margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;font-family:var(--fb);font-size:15px;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.field textarea{resize:vertical;min-height:120px}
+.form .btn-primary{width:100%;justify-content:center;margin-top:4px}
+.form-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;text-align:center}
+.cta-inner{background:linear-gradient(120deg,#16204a,#1f2f6e 55%,#2b50ec);border-radius:20px;padding:56px 48px;text-align:center;color:#fff;overflow:hidden}
+.cta-inner h2{color:#fff;font-size:clamp(26px,3.6vw,36px)}
+.cta-inner p{color:#c3cdee;max-width:520px;margin:14px auto 28px;font-size:17px}
+.cta-inner .btn-primary{background:#fff;color:var(--accent)}.cta-inner .btn-primary:hover{background:#eef1fe}
+/* legal accordions */
+.legal{background:var(--surface);border-top:1px solid var(--line)}
+.legal .section-head{margin-bottom:28px}
+.acc{border:1px solid var(--line);border-radius:12px;background:var(--surface-2);margin-bottom:12px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:18px 22px;font-family:var(--fd);font-weight:600;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .pl{color:var(--accent);font-size:22px;transition:transform .2s;font-family:var(--fb)}
+.acc[open] summary .pl{transform:rotate(45deg)}
+.acc .body{padding:4px 22px 24px;border-top:1px solid var(--line)}
+.acc .body p,.acc .body li{color:var(--ink-2);font-size:14.5px;margin-bottom:10px}
+.acc .body h4{font-family:var(--fd);font-size:15px;margin:18px 0 6px;color:var(--ink)}
+.acc .body ul{padding-left:20px;margin-bottom:10px}.acc .body li{margin-bottom:5px}
+.acc .updated{font-family:var(--fm);font-size:12px;color:var(--ink-3);margin-bottom:14px}
+.acc .note{background:var(--accent-tint);border:1px solid #d9e0fd;border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink-2);margin-bottom:16px}
+.acc .body a{color:var(--accent)}
+.site-footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0 30px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
+.footer-grid p{color:var(--ink-3);font-size:14px;margin-top:14px;max-width:300px}
+.footer-col h5{font-family:var(--fm);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:16px;font-weight:500}
+.footer-col ul{list-style:none;display:grid;gap:11px}
+.footer-col a{font-size:14.5px;color:var(--ink-2);transition:color .15s}.footer-col a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13.5px;color:var(--ink-3)}
+@media(max-width:960px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}.cards,.steps{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:30px}.code-card{max-width:480px}}
+@media(max-width:680px){section{padding:68px 0}.hero{padding:56px 0 64px}.nav-links,.nav-cta .btn{display:none}.nav-toggle{display:block}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);padding:20px 24px;gap:18px;box-shadow:var(--shadow)}.cards,.steps,.stat-grid,.footer-grid{grid-template-columns:1fr}.cta-inner{padding:40px 24px}.footer-bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="#top" class="brand"><span class="brand-mark">I</span>Inno<span>dealz</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">Why us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">// software development studio</span>
+        <h1 style="margin-top:18px;">Custom software,<br><span class="grad">built to ship.</span></h1>
+        <p class="lead">Innodealz LLC designs and develops web applications, SaaS platforms, and e-commerce solutions for founders and growing businesses — with clean code, clear communication, and dependable delivery.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+          <a href="#services" class="btn btn-ghost">View services</a>
+        </div>
+        <div class="hero-meta">
+          <div class="item"><strong>50+</strong>projects delivered</div>
+          <div class="item"><strong>7+ yrs</strong>building software</div>
+          <div class="item"><strong>100%</strong>custom code</div>
+        </div>
+      </div>
+      <div class="code-card" aria-hidden="true">
+        <div class="code-bar"><i></i><i></i><i></i><span class="file">innodealz / deploy.js</span></div>
+        <div class="code-body">
+          <div><span class="ln">1</span><span class="tk-com">// turning ideas into shipped products</span></div>
+          <div><span class="ln">2</span><span class="tk-key">const</span> <span class="tk-pun">project</span> <span class="tk-pun">=</span> <span class="tk-key">await</span> <span class="tk-fn">build</span><span class="tk-pun">({</span></div>
+          <div><span class="ln">3</span>&nbsp;&nbsp;<span class="tk-pun">type:</span> <span class="tk-str">"web &amp; saas"</span><span class="tk-pun">,</span></div>
+          <div><span class="ln">4</span>&nbsp;&nbsp;<span class="tk-pun">stack:</span> <span class="tk-pun">[</span><span class="tk-str">"react"</span><span class="tk-pun">,</span> <span class="tk-str">"laravel"</span><span class="tk-pun">],</span></div>
+          <div><span class="ln">5</span>&nbsp;&nbsp;<span class="tk-pun">payments:</span> <span class="tk-str">"stripe"</span><span class="tk-pun">,</span></div>
+          <div><span class="ln">6</span>&nbsp;&nbsp;<span class="tk-pun">quality:</span> <span class="tk-num">100</span><span class="tk-pun">,</span></div>
+          <div><span class="ln">7</span><span class="tk-pun">});</span></div>
+          <div><span class="ln">8</span></div>
+          <div><span class="ln">9</span><span class="tk-fn">ship</span><span class="tk-pun">(</span><span class="tk-pun">project</span><span class="tk-pun">);</span> <span class="tk-com">// ✓ on time</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="container trust-inner">
+      <p>Technologies we work with</p>
+      <ul><li>React</li><li>Laravel</li><li>Node.js</li><li>Shopify</li><li>WordPress</li><li>Stripe</li></ul>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">// what we do</span>
+        <h2>Services built around your product.</h2>
+        <p>From a first prototype to a production platform, we cover the full development lifecycle so you can move from idea to launch without juggling multiple vendors.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Web Application Development</h3><p>Fast, responsive web apps and dashboards built on modern frameworks — designed for real users and real scale.</p><div class="tags"><span>React</span><span>Next.js</span><span>REST APIs</span></div></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>SaaS Platform Development</h3><p>Multi-tenant SaaS products with subscriptions, user roles, and billing — engineered to grow with your business.</p><div class="tags"><span>Laravel</span><span>Subscriptions</span><span>Auth</span></div></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h3>E-commerce &amp; Shopify</h3><p>Custom storefronts, Shopify app development, and conversion-focused builds that turn visitors into customers.</p><div class="tags"><span>Shopify</span><span>Liquid</span><span>WooCommerce</span></div></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3>Payment &amp; API Integrations</h3><p>Secure Stripe, PayPal, and third-party API integrations — checkout, subscriptions, payouts, and data sync done right.</p><div class="tags"><span>Stripe</span><span>PayPal</span><span>Webhooks</span></div></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>WordPress &amp; CMS</h3><p>Business websites, landing pages, and custom WordPress builds that are easy to manage and built to perform.</p><div class="tags"><span>WordPress</span><span>Elementor</span><span>Custom themes</span></div></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Maintenance &amp; Support</h3><p>Ongoing updates, bug fixes, performance tuning, and feature work to keep your product healthy after launch.</p><div class="tags"><span>Monitoring</span><span>Updates</span><span>SLA</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">// how we work</span>
+        <h2>A clear path from idea to launch.</h2>
+        <p>A simple, transparent process so you always know what's happening, what's next, and what it costs.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">01</span><h3>Discovery</h3><p>We learn your goals, scope the work, and agree on timeline and a fixed, written quote — no surprises.</p></div>
+        <div class="step"><span class="num">02</span><h3>Design &amp; Plan</h3><p>We map the architecture, define milestones, and share a build plan you sign off on before development starts.</p></div>
+        <div class="step"><span class="num">03</span><h3>Build &amp; Review</h3><p>We develop in milestones with regular check-ins, so you can see progress and give feedback as we go.</p></div>
+        <div class="step"><span class="num">04</span><h3>Launch &amp; Support</h3><p>We test, deploy, and hand over a working product — then stay on for maintenance and improvements.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">// why innodealz</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin:16px 0 18px;">A reliable development partner, not just a freelancer.</h2>
+        <p style="color:var(--ink-3);font-size:17px;margin-bottom:8px;">Innodealz LLC is a software development company focused on building dependable products for founders, agencies, and small businesses. We care about clean code, clear communication, and shipping work that actually does its job.</p>
+        <ul class="about-list">
+          <li><span class="check"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><h4>Fixed, transparent pricing</h4><p>Clear written quotes before any work begins — you always know the cost up front.</p></div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><h4>Direct communication</h4><p>You work directly with the developer building your product — no account-manager telephone game.</p></div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><h4>Quality you can maintain</h4><p>Well-structured, documented code that your future team can read, extend, and trust.</p></div></li>
+        </ul>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><strong>50+</strong><span>Projects delivered for clients worldwide</span></div>
+        <div class="stat"><strong>7+</strong><span>Years of professional development experience</span></div>
+        <div class="stat"><strong>10+</strong><span>Technologies across web, mobile &amp; cloud</span></div>
+        <div class="stat"><strong>On&nbsp;time</strong><span>Milestone-based delivery you can plan around</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:0;">
+    <div class="container">
+      <div class="cta-inner">
+        <h2>Have a project in mind?</h2>
+        <p>Tell us what you're building. We'll reply with honest feedback, a clear scope, and a fixed quote.</p>
+        <a href="#contact" class="btn btn-primary">Get in touch <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">// get in touch</span>
+        <h2>Let's talk about your project.</h2>
+        <p>Send a few details about what you need and we'll get back to you within one business day.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info">
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><div><div class="lbl">Email</div><div class="val"><a href="mailto:info@innodealz.com">info@innodealz.com</a></div></div></div>
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><div class="lbl">Business</div><div class="val">Innodealz LLC<br><span style="font-weight:400;color:var(--ink-3);font-size:14px;">1309 Coffeen Avenue, STE 1200<br>Sheridan, WY 82801, USA</span></div></div></div>
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><div><div class="lbl">Hours</div><div class="val" style="font-weight:400;font-size:15px;color:var(--ink-2);">Mon – Fri, 9:00am – 6:00pm</div></div></div>
+          </div>
+        </div>
+        <div class="form" style="text-align:center;">
+          <div style="width:58px;height:58px;border-radius:15px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin:8px auto 18px;">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 style="font-family:var(--fd);font-size:23px;margin-bottom:10px;">Email us directly</h3>
+          <p style="color:var(--ink-3);font-size:15px;max-width:360px;margin:0 auto 24px;">Send us your project goals, timeline, and budget, and we'll get back to you within one business day.</p>
+          <a href="mailto:info@innodealz.com?subject=Project%20inquiry%20%E2%80%94%20Innodealz" class="btn btn-primary" style="width:100%;justify-content:center;">Email info@innodealz.com <span class="arrow">→</span></a>
+          <p class="form-note">We typically reply within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL (same page) -->
+  <section id="legal" class="legal">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">// legal</span>
+        <h2>Policies.</h2>
+        <p>Click any policy to expand.</p>
+      </div>
+
+      <details class="acc" id="terms">
+        <summary>Terms of Service <span class="pl">+</span></summary>
+        <div class="body">
+          <p class="updated">Last updated: June 25, 2026</p>
+          
+          <p>These Terms govern your use of the website and software development services provided by Innodealz LLC ("Innodealz," "we," "us"). By engaging our services you agree to these Terms.</p>
+          <h4>1. Services</h4><p>We provide software development services including web app development, SaaS platforms, e-commerce, payment/API integrations, WordPress, and maintenance. Scope, deliverables, timeline, and price are defined in a written quote agreed by both parties.</p>
+          <h4>2. Quotes &amp; Payment</h4><p>Work begins after you accept a written quote and pay any required deposit. Unless agreed otherwise, projects require an upfront deposit with the balance due at agreed milestones or on completion. Payments are processed via our third-party provider (e.g., Stripe). Late payments may pause work.</p>
+          <h4>3. Client Responsibilities</h4><p>You agree to provide required content, access, feedback, and approvals in a timely manner, and to ensure materials you supply do not infringe third-party rights.</p>
+          <h4>4. Intellectual Property</h4><p>On full payment, ownership of the final custom deliverables transfers to you, except third-party components (subject to their own licenses) and Innodealz's pre-existing tools (licensed to you, non-exclusive). Until paid, work product remains ours.</p>
+          <h4>5. Warranty &amp; Liability</h4><p>Services are performed professionally; we correct defects in our work during the warranty period stated in your proposal. To the maximum extent permitted by law, our total liability shall not exceed the amount paid for the engagement giving rise to the claim, and we are not liable for indirect or consequential damages.</p>
+          <h4>6. Termination &amp; Governing Law</h4><p>Either party may terminate per the applicable proposal; you remain responsible for work completed to date. Refunds follow our Refund Policy below. These Terms are governed by the laws of the State of Wyoming, United States.</p>
+          <h4>7. Contact</h4><p>Questions: <a href="mailto:info@innodealz.com">info@innodealz.com</a>.</p>
+        </div>
+      </details>
+
+      <details class="acc" id="privacy">
+        <summary>Privacy Policy <span class="pl">+</span></summary>
+        <div class="body">
+          <p class="updated">Last updated: June 25, 2026</p>
+          
+          <p>Innodealz LLC respects your privacy. This policy explains what we collect, how we use it, and your choices.</p>
+          <h4>Information we collect</h4><ul><li>Details you provide (name, email, phone, company, project info) via our form or email.</li><li>Payment details, processed directly by our payment processor (e.g., Stripe) — we don't store full card data.</li><li>Basic technical data (IP, browser, pages visited) via standard logs and analytics.</li></ul>
+          <h4>How we use it</h4><ul><li>To respond to inquiries, provide quotes, and deliver and support services.</li><li>To process payments and send invoices/receipts.</li><li>To improve our website and meet legal obligations.</li></ul>
+          <h4>Sharing</h4><p>We do not sell your data. We share it only with trusted providers who help us operate — payment processors, hosting/infrastructure, analytics/email — or where required by law.</p>
+          <h4>Security &amp; retention</h4><p>We use reasonable safeguards and keep data only as long as needed for the purposes above. No method of transmission is 100% secure.</p>
+          <h4>Your rights</h4><p>You may request access, correction, or deletion of your personal data by emailing <a href="mailto:info@innodealz.com">info@innodealz.com</a>.</p>
+        </div>
+      </details>
+
+      <details class="acc" id="refund">
+        <summary>Refund &amp; Cancellation Policy <span class="pl">+</span></summary>
+        <div class="body">
+          <p class="updated">Last updated: June 25, 2026</p>
+          
+          <p>Because our work is custom professional services, refunds are handled as follows.</p>
+          <h4>Deposits &amp; milestones</h4><p>Once work has begun, deposits are generally non-refundable as they cover committed time and resources. For milestone-based projects, payment for a delivered and approved milestone is non-refundable; future milestones not yet started may be cancelled.</p>
+          <h4>Cancellation by you</h4><p>You may cancel anytime in writing to <a href="mailto:info@innodealz.com">info@innodealz.com</a>. You'll be billed for work completed to date; amounts paid for work not yet started are refunded, minus non-recoverable third-party costs and payment-processing fees.</p>
+          <h4>Eligible for refund</h4><ul><li>Deposit paid but no work started.</li><li>Payment for a milestone not yet started.</li><li>Duplicate or incorrect payments.</li></ul>
+          <p>Refunds are generally not available for work already delivered, change-of-mind after delivery, or delays caused by missing client materials/approvals.</p>
+          <h4>How to request</h4><p>Email your name, project details, payment date, and reason. We review requests within 5 business days and issue approved refunds to the original payment method.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#top" class="brand"><span class="brand-mark">I</span>Inno<span>dealz</span></a>
+        <p>Innodealz LLC builds custom web applications, SaaS platforms, and e-commerce solutions for businesses and founders.</p>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="#services">Web Development</a></li><li><a href="#services">SaaS Platforms</a></li><li><a href="#services">E-commerce</a></li><li><a href="#services">Integrations</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">Why us</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="#terms" onclick="document.getElementById('terms').open=true">Terms of Service</a></li><li><a href="#privacy" onclick="document.getElementById('privacy').open=true">Privacy Policy</a></li><li><a href="#refund" onclick="document.getElementById('refund').open=true">Refund Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Innodealz LLC. All rights reserved.</p><p>info@innodealz.com</p></div>
+  </div>
+</footer>
+
+<script>
+  const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>{const o=links.classList.toggle('open');toggle.setAttribute('aria-expanded',o)});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded',false)}));
+</script>
+</body>
+</html>
